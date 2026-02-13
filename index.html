@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Link Icons Library-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Formulário de Login</title>
+</head>
+
+<body class="min-h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('https://source.unsplash.com/1920x1080/?montanha');">
+    <div class="formsoculto">
+        <main class="min-h-screen flex items-center justify-center">
+            <form class="flex flex-col justify-center items-center bg-white p-8 rounded-2xl shadow-lg">
+                <h1 class="text-3xl font-semibold text-gray-800">Bem-vindo(a)</h1>
+                <h2 class="text-sm font-normal text-gray-600">Insira seus dados de acesso</h2>
+
+                <div class="w-64 flex flex-col justify-center items-start mt-4">
+                    <label class="text-gray-800 font-semibold mb-3" for="email">E-mail</label>
+                    <div class="relative w-full mb-2">
+                        <i class="bx bxs-user absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-base"></i>
+                        <input class="w-full py-2 pl-8 pr-0 border border-gray-300 rounded focus:outline-none focus:border-blue-500 text-sm placeholder:text-xs placeholder:text-gray-400" 
+                               type="email" 
+                               id="email" 
+                               placeholder="Seu email:" 
+                               autocomplete="off">
+                    </div>
+
+                    <label class="text-gray-800 font-semibold mb-3" for="password">Senha</label>
+                    <div class="relative w-full">
+                        <i class="bx bxs-key absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-base"></i>
+                        <input class="w-full py-2 pl-8 pr-0 border border-gray-300 rounded focus:outline-none focus:border-blue-500 text-sm placeholder:text-xs placeholder:text-gray-400" 
+                               type="password" 
+                               id="password" 
+                               placeholder="Sua senha:">
+                    </div>
+
+                    <a class="text-blue-500 my-4 cursor-pointer hover:text-blue-700">Esqueceu a senha?</a>
+
+                    <input class="w-full rounded font-semibold bg-gradient-to-br from-blue-500 to-blue-400 text-white py-2 cursor-pointer hover:opacity-90 transition-opacity" 
+                           type="submit" 
+                           value="Login">
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+
+</html>
