@@ -5,52 +5,166 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Link Icons Library-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            500: '#2676EF',
+                            600: '#1757B9',
+                            700: '#40A9F4',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts para tipografia customizada -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <title>Formulário de Login</title>
 </head>
 
-<body class="min-h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('https://source.unsplash.com/1920x1080/?montanha');">
+<body class="min-h-screen bg-cover bg-center bg-no-repeat transition-colors duration-300" 
+      style="background-image: url('https://source.unsplash.com/1920x1080/?montanha');">
+
+    <div class="absolute top-4 right-4 sm:top-6 sm:right-6 z-50">
+        <button onclick="toggleDarkMode()" 
+                class="p-2 sm:p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all">
+
+            <i class='bx bx-moon text-xl sm:text-2xl text-gray-700 dark:hidden'></i>
+
+            <i class='bx bx-sun text-xl sm:text-2xl text-yellow-400 hidden dark:block'></i>
+        </button>
+    </div>
+
     <div class="formsoculto">
-        <main class="min-h-screen flex items-center justify-center">
-            <form class="flex flex-col justify-center items-center bg-white p-8 rounded-2xl shadow-lg">
-                <h1 class="text-3xl font-semibold text-gray-800">Bem-vindo(a)</h1>
-                <h2 class="text-sm font-normal text-gray-600">Insira seus dados de acesso</h2>
 
-                <div class="w-64 flex flex-col justify-center items-start mt-4">
-                    <label class="text-gray-800 font-semibold mb-3" for="email">E-mail</label>
-                    <div class="relative w-full mb-2">
-                        <i class="bx bxs-user absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-base"></i>
-                        <input class="w-full py-2 pl-8 pr-0 border border-gray-300 rounded focus:outline-none focus:border-blue-500 text-sm placeholder:text-xs placeholder:text-gray-400" 
-                               type="email" 
-                               id="email" 
-                               placeholder="Seu email:" 
-                               autocomplete="off">
+        <main class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+
+            <form class="w-full max-w-sm sm:max-w-md flex flex-col justify-center items-center 
+                         bg-white dark:bg-gray-800 
+                         p-6 sm:p-8 lg:p-10 
+                         rounded-2xl shadow-xl 
+                         transition-colors duration-300">
+                
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-semibold 
+                           text-gray-800 dark:text-white 
+                           transition-colors">
+                    Bem-vindo(a)
+                </h1>
+                
+                <h2 class="text-xs sm:text-sm lg:text-base font-normal 
+                           text-gray-600 dark:text-gray-400 
+                           transition-colors">
+                    Insira seus dados de acesso
+                </h2>
+
+                <div class="w-full flex flex-col justify-center items-start mt-4 sm:mt-6 lg:mt-8 space-y-4 sm:space-y-5">
+
+                    <div class="w-full">
+                        <label class="block text-sm sm:text-base font-semibold 
+                                      text-gray-800 dark:text-gray-200 
+                                      mb-2 sm:mb-3 
+                                      transition-colors" 
+                               for="email">
+                            E-mail
+                        </label>
+                        <div class="relative">
+                            <i class="bx bxs-user absolute left-2.5 top-1/2 -translate-y-1/2 
+                                      text-gray-400 dark:text-gray-500 
+                                      text-base sm:text-lg"></i>
+                            <input class="w-full py-2 sm:py-2.5 lg:py-3 pl-8 sm:pl-10 pr-2 
+                                          border border-gray-300 dark:border-gray-600 
+                                          rounded 
+                                          focus:outline-none focus:border-primary-500 dark:focus:border-primary-700 
+                                          bg-white dark:bg-gray-700 
+                                          text-gray-900 dark:text-white 
+                                          placeholder:text-xs placeholder:text-gray-400 dark:placeholder:text-gray-500
+                                          transition-colors text-sm sm:text-base" 
+                                   type="email" 
+                                   id="email" 
+                                   placeholder="Seu email:" 
+                                   autocomplete="off">
+                        </div>
                     </div>
 
-                    <label class="text-gray-800 font-semibold mb-3" for="password">Senha</label>
-                    <div class="relative w-full">
-                        <i class="bx bxs-key absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-base"></i>
-                        <input class="w-full py-2 pl-8 pr-0 border border-gray-300 rounded focus:outline-none focus:border-blue-500 text-sm placeholder:text-xs placeholder:text-gray-400" 
-                               type="password" 
-                               id="password" 
-                               placeholder="Sua senha:">
+                    <div class="w-full">
+                        <label class="block text-sm sm:text-base font-semibold 
+                                      text-gray-800 dark:text-gray-200 
+                                      mb-2 sm:mb-3 
+                                      transition-colors" 
+                               for="password">
+                            Senha
+                        </label>
+                        <div class="relative">
+                            <i class="bx bxs-key absolute left-2.5 top-1/2 -translate-y-1/2 
+                                      text-gray-400 dark:text-gray-500 
+                                      text-base sm:text-lg"></i>
+                            <input class="w-full py-2 sm:py-2.5 lg:py-3 pl-8 sm:pl-10 pr-2 
+                                          border border-gray-300 dark:border-gray-600 
+                                          rounded 
+                                          focus:outline-none focus:border-primary-500 dark:focus:border-primary-700 
+                                          bg-white dark:bg-gray-700 
+                                          text-gray-900 dark:text-white 
+                                          placeholder:text-xs placeholder:text-gray-400 dark:placeholder:text-gray-500
+                                          transition-colors text-sm sm:text-base" 
+                                   type="password" 
+                                   id="password" 
+                                   placeholder="Sua senha:">
+                        </div>
                     </div>
+                    <a class="text-sm sm:text-base 
+                              text-primary-500 dark:text-primary-700 
+                              hover:text-primary-600 dark:hover:text-primary-500 
+                              cursor-pointer transition-colors">
+                        Esqueceu a senha?
+                    </a>
 
-                    <a class="text-blue-500 my-4 cursor-pointer hover:text-blue-700">Esqueceu a senha?</a>
-
-                    <input class="w-full rounded font-semibold bg-gradient-to-br from-blue-500 to-blue-400 text-white py-2 cursor-pointer hover:opacity-90 transition-opacity" 
+                    <input class="w-full rounded font-semibold 
+                                  bg-gradient-to-br from-primary-500 to-primary-700 
+                                  hover:from-primary-600 hover:to-primary-500 
+                                  text-white 
+                                  py-2 sm:py-2.5 lg:py-3 
+                                  cursor-pointer 
+                                  transition-all duration-200 
+                                  text-sm sm:text-base lg:text-lg
+                                  shadow-md hover:shadow-lg" 
                            type="submit" 
                            value="Login">
                 </div>
             </form>
         </main>
     </div>
+
+    <script>
+        if (localStorage.theme === 'dark' || 
+            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark')
+                localStorage.theme = 'light'
+            } else {
+                document.documentElement.classList.add('dark')
+                localStorage.theme = 'dark'
+            }
+        }
+    </script>
 </body>
 
 </html>
